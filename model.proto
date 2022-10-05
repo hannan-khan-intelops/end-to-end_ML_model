@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package model;
+
+message ModelFeaturesRequest {
+	bytes processed_image = 1;
+}
+
+message ModelOutputResponse {
+	int32 guess = 1;
+	float confidence = 2;
+}
+
+// this is the service to call for the model.
+service Predictor {
+	rpc PredictImage (ModelFeaturesRequest) returns (ModelOutputResponse) {}
+}
