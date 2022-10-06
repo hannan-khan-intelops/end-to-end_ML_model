@@ -2,10 +2,13 @@ syntax = "proto3";
 
 package model;
 
+// we send the image via a bytes stream. This is done using
+// Pillow in the client code.
 message ModelFeaturesRequest {
-	bytes processed_image = 1;
+	bytes image = 1;
 }
 
+// will return the best guess as well its confidence (out of 1)
 message ModelOutputResponse {
 	int32 guess = 1;
 	float confidence = 2;
