@@ -6,24 +6,25 @@ from google.protobuf.internal import builder as _builder
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import symbol_database as _symbol_database
+
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-
-
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bmodel.proto\x12\x05model\"%\n\x14ModelFeaturesRequest\x12\r\n\x05image\x18\x01 \x01(\x0c\"8\n\x13ModelOutputResponse\x12\r\n\x05guess\x18\x01 \x01(\x05\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x32V\n\tPredictor\x12I\n\x0cPredictImage\x12\x1b.model.ModelFeaturesRequest\x1a\x1a.model.ModelOutputResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n\x0bmodel.proto\x12\x05model"%\n\x14ModelFeaturesRequest\x12\r\n\x05image\x18\x01 \x01(\x0c"8\n\x13ModelOutputResponse\x12\r\n\x05guess\x18\x01 \x01(\x05\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x32V\n\tPredictor\x12I\n\x0cPredictImage\x12\x1b.model.ModelFeaturesRequest\x1a\x1a.model.ModelOutputResponse"\x00\x62\x06proto3'
+)
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'model_pb2', globals())
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "model_pb2", globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
-  DESCRIPTOR._options = None
-  _MODELFEATURESREQUEST._serialized_start=22
-  _MODELFEATURESREQUEST._serialized_end=59
-  _MODELOUTPUTRESPONSE._serialized_start=61
-  _MODELOUTPUTRESPONSE._serialized_end=117
-  _PREDICTOR._serialized_start=119
-  _PREDICTOR._serialized_end=205
+    DESCRIPTOR._options = None
+    _MODELFEATURESREQUEST._serialized_start = 22
+    _MODELFEATURESREQUEST._serialized_end = 59
+    _MODELOUTPUTRESPONSE._serialized_start = 61
+    _MODELOUTPUTRESPONSE._serialized_end = 117
+    _PREDICTOR._serialized_start = 119
+    _PREDICTOR._serialized_end = 205
 # @@protoc_insertion_point(module_scope)

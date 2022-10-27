@@ -26,7 +26,7 @@ def load_image(image_bytes):
 def predict(image_bytes):
     """Loads the model, the image, and performs prediction.
     Then returns the guess as well as its confidence."""
-    model = keras.models.load_model('mnist_model')
+    model = keras.models.load_model("mnist_model")
     image = load_image(image_bytes)
     result = model.predict(image)[0]
     print("All prediction results", result)
@@ -39,7 +39,9 @@ class Predictor(model_pb2_grpc.PredictorServicer):
         guess, confidence = predict(image_bytes=request.image)
         print(f"Server guess {guess}, confidence {confidence}")
         # return the response message
-        return model_pb2.ModelOutputResponse(guess=int(guess), confidence=float(confidence))
+        return model_pb2.ModelOutputResponse(
+            guess=int(guess), confidence=float(confidence)
+        )
 
 
 def serve():
@@ -49,15 +51,15 @@ def serve():
     # adds our PredictorService object to our server.
     model_pb2_grpc.add_PredictorServicer_to_server(Predictor(), server)
     # adds the same port that our client connects to.
-    server.add_insecure_port('[::]:9999')
+    server.add_insecure_port("[::]:9999")
     # we print out where our server is running,
     # to be able to set up our client code correctly.
-    print("Server located at: ", end='')
+    print("Server located at: ", end="")
     print(socket.gethostbyname(socket.gethostname()))
     # starts the server
     server.start()
     server.wait_for_termination()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     serve()
