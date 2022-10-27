@@ -8,7 +8,7 @@ import model_pb2_grpc
 app = Flask("end-to-end_ML_model_client")
 
 
-@app.route('/')
+@app.route("/")
 def run_client():
     # we will use port 8888 to communicate between the client and server
     try:
