@@ -1,4 +1,4 @@
-name: black-action-pr
+name: Code Formatting With PR - Black
 on: [push, pull_request]
 jobs:
   linter_name:
