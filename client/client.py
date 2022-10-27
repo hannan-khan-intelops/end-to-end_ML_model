@@ -26,7 +26,9 @@ def run_client():
             # The 'L' below stands for a one-channel (grayscale) image.
             # we open the image, and convert it bytes.
             bytes_string = Image.open("mnist_image_png.png").tobytes("raw", "L")
-            response = stub.PredictImage(model_pb2.ModelFeaturesRequest(image=bytes_string))
+            response = stub.PredictImage(
+                model_pb2.ModelFeaturesRequest(image=bytes_string)
+            )
             # return response as terminal output and cleaned html code
             print("Client received the following response:" + str(response))
             return f"""<h1>Client Received:</h1>
