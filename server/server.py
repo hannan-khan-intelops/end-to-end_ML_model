@@ -45,7 +45,9 @@ class Predictor(model_pb2_grpc.PredictorServicer):
         guess, confidence = predict(image_bytes=request.image)
         print(f"Server guess {guess}, confidence {confidence}")
         # return the response message
-        return model_pb2.ModelOutputResponse(guess=int(guess), confidence=float(confidence))
+        return model_pb2.ModelOutputResponse(
+            guess=int(guess), confidence=float(confidence)
+        )
 
 
 def serve():
