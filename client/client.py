@@ -1,3 +1,6 @@
+""" This file creates a client interface which will send image data to the server
+and display the response it gets back."""
+
 from flask import Flask
 from PIL import Image
 
@@ -10,6 +13,7 @@ app = Flask("end-to-end_ML_model_client")
 
 @app.route("/")
 def run_client():
+    """Runs the client."""
     # we will use port 8888 to communicate between the client and server
     try:
         # replace the '172.17.0.2' with whatever your server prints out.
@@ -28,9 +32,9 @@ def run_client():
             return f"""<h1>Client Received:</h1>
             <h2>Guess: '{str(response.guess)}'</h2>
             <h2>Confidence: {response.confidence:.3f}%</h2>"""
-    except Exception as e:
+    except Exception as _e:
         # if there is any error, we have a way to handle for it here.
-        return "<h1>ERROR</h1>" + str(e)
+        return "<h1>ERROR</h1>" + str(_e)
 
 
 if __name__ == "__main__":

@@ -1,3 +1,5 @@
+""" This file creates a server for the client to interact with."""
+
 from concurrent import futures
 import grpc
 import model_pb2
@@ -34,17 +36,20 @@ def predict(image_bytes):
 
 
 class Predictor(model_pb2_grpc.PredictorServicer):
+    """Creates a predictor object to handle the processing
+    of the request, as well as formatting and sending back the
+    result of the request."""
+
     def PredictImage(self, request, context):
         # predict the image
         guess, confidence = predict(image_bytes=request.image)
         print(f"Server guess {guess}, confidence {confidence}")
         # return the response message
-        return model_pb2.ModelOutputResponse(
-            guess=int(guess), confidence=float(confidence)
-        )
+        return model_pb2.ModelOutputResponse(guess=int(guess), confidence=float(confidence))
 
 
 def serve():
+    """serves the server."""
     print("Server Running...")
     # creates a server
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
